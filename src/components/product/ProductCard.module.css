@@ -1,0 +1,246 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.media {
+  position: relative;
+  border-radius: var(--radius-xs);
+  overflow: hidden;
+  background: var(--color-surface);
+  isolation: isolate;
+}
+
+.mediaLink {
+  display: block;
+}
+
+.img,
+.imgAlt {
+  width: 100%;
+}
+
+.img img {
+  transition:
+    opacity var(--dur-slow) var(--ease),
+    transform 900ms var(--ease);
+}
+
+.imgAlt {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity var(--dur-slow) var(--ease);
+}
+
+.badges {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  pointer-events: none;
+}
+
+.fav {
+  position: absolute;
+  top: 6px;
+  right: 6px;
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  color: var(--color-text);
+  transition:
+    color var(--dur) var(--ease),
+    transform var(--dur-fast) var(--ease);
+}
+
+.fav svg {
+  width: 19px;
+  height: 19px;
+  transition: fill var(--dur) var(--ease);
+  filter: drop-shadow(0 0 3px rgb(255 255 255 / 0.9));
+}
+
+.fav:hover {
+  color: var(--color-brand-ink);
+}
+
+.fav:active {
+  transform: scale(0.9);
+}
+
+.favActive svg {
+  fill: var(--color-brand);
+  stroke: var(--color-brand-ink);
+}
+
+/* — Hover çubuğu — */
+.bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: grid;
+  grid-template-columns: 1fr 48px;
+  background: color-mix(in srgb, var(--color-surface) 94%, transparent);
+  transform: translateY(100%);
+  transition: transform var(--dur-slow) var(--ease);
+}
+
+.barAdd,
+.barView {
+  display: grid;
+  place-items: center;
+  height: 46px;
+  color: var(--color-text);
+  transition:
+    background-color var(--dur) var(--ease),
+    color var(--dur) var(--ease);
+}
+
+.barAdd {
+  font-size: 0.6875rem;
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+
+.barView {
+  border-left: 1px solid var(--color-line);
+}
+
+.barView svg {
+  width: 18px;
+  height: 18px;
+}
+
+.barAdd:hover:not(:disabled),
+.barView:hover {
+  background: var(--color-text);
+  color: var(--palette-white);
+}
+
+.barAdd:disabled {
+  color: var(--color-text-secondary);
+}
+
+.quickAdd {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+  display: none;
+  place-items: center;
+  width: 34px;
+  height: 34px;
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+  color: var(--color-text);
+  box-shadow: var(--shadow-xs);
+}
+
+.quickAdd svg {
+  width: 17px;
+  height: 17px;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .card:hover .img img {
+    transform: scale(1.04);
+  }
+
+  .card:hover .imgAlt {
+    opacity: 1;
+  }
+
+  .card:hover .bar,
+  .bar:focus-within {
+    transform: none;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .bar {
+    display: none;
+  }
+
+  .quickAdd {
+    display: grid;
+  }
+}
+
+/* Klavye kullanıcıları için hover olmadan da görünür */
+.card:focus-within .bar {
+  transform: none;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding-top: 16px;
+  flex: 1;
+}
+
+.name {
+  font-size: 0.9375rem;
+  font-weight: var(--fw-medium);
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.name a {
+  transition: color var(--dur) var(--ease);
+}
+
+.name a:hover {
+  color: var(--color-brand-ink);
+}
+
+.info {
+  font-size: var(--fs-xs);
+  color: var(--color-text-secondary);
+}
+
+.low {
+  color: var(--color-text);
+  font-weight: var(--fw-medium);
+}
+
+.foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2);
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+.soldOut .img img {
+  filter: grayscale(0.35);
+  opacity: 0.75;
+}
+
+@media (max-width: 639px) {
+  .fav {
+    top: 2px;
+    right: 2px;
+    width: 34px;
+    height: 34px;
+  }
+
+  .body {
+    padding-top: 12px;
+    gap: 3px;
+  }
+
+  .name {
+    font-size: var(--fs-sm);
+  }
+}

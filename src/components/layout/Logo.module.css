@@ -1,0 +1,25 @@
+.logo {
+  display: inline-flex;
+  flex: none;
+  justify-self: start;
+}
+
+.logo img {
+  width: auto;
+  height: 100%;
+}
+
+/* Logo orijinal oranıyla; çevresinde bol boşluk */
+.lockup {
+  height: 58px;
+}
+
+.badge {
+  height: 84px;
+}
+
+@media (max-width: 1023px) {
+  .lockup {
+    height: 44px;
+  }
+}

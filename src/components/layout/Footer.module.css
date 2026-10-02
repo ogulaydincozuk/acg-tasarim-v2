@@ -1,0 +1,204 @@
+/* Sade, açık footer: beyaz yüzey, ince çizgiler */
+.footer {
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-line);
+  color: var(--color-text);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-8);
+  padding-block: clamp(3.5rem, 2.5rem + 3vw, 6rem) clamp(2.5rem, 2rem + 2vw, 4rem);
+}
+
+.col summary,
+.colTitle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--space-5);
+  font-size: var(--fs-2xs);
+  font-weight: var(--fw-medium);
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  list-style: none;
+  pointer-events: none;
+}
+
+.col summary::-webkit-details-marker {
+  display: none;
+}
+
+.col summary svg {
+  display: none;
+  width: 18px;
+  height: 18px;
+  transition: transform var(--dur) var(--ease);
+}
+
+.col ul {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  font-size: var(--fs-sm);
+}
+
+.col a {
+  transition: color var(--dur) var(--ease);
+}
+
+.col a:hover {
+  color: var(--color-brand-ink);
+}
+
+.contact li {
+  color: var(--color-text);
+}
+
+.hours {
+  font-size: var(--fs-xs);
+  color: var(--color-text-secondary) !important;
+}
+
+/* — Marka satırı: logo · sosyal · ödeme — */
+.brandRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-6);
+  padding-block: var(--space-8);
+  border-top: 1px solid var(--color-line);
+}
+
+.brandRow .logo {
+  height: 52px;
+}
+
+.social {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.social a,
+.social button {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  color: var(--color-text);
+  transition:
+    background-color var(--dur) var(--ease),
+    border-color var(--dur) var(--ease);
+}
+
+.social a:hover,
+.social button:hover {
+  background: var(--color-bg);
+  border-color: var(--color-brand);
+}
+
+.social svg {
+  width: 17px;
+  height: 17px;
+}
+
+.payments {
+  display: flex;
+  gap: 6px;
+}
+
+.payments li {
+  display: grid;
+  place-items: center;
+  height: 28px;
+  padding: 0 10px;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-xs);
+  font-size: 10px;
+  font-weight: var(--fw-semibold);
+  letter-spacing: 0.06em;
+  color: var(--color-text-secondary);
+}
+
+/* — Alt çizgi: telif + yasal — */
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-8);
+  padding-block: var(--space-6) var(--space-8);
+  border-top: 1px solid var(--color-line);
+  font-size: var(--fs-xs);
+  color: var(--color-text-secondary);
+}
+
+.legal {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2) var(--space-6);
+}
+
+.legal a:hover {
+  color: var(--color-text);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+@media (max-width: 1023px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: var(--space-10);
+  }
+}
+
+@media (max-width: 767px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding-block: var(--space-6) var(--space-4);
+  }
+
+  .col {
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .col summary,
+  .colTitle {
+    margin: 0;
+    min-height: 56px;
+  }
+
+  .col summary {
+    pointer-events: auto;
+    cursor: pointer;
+  }
+
+  .col summary svg {
+    display: block;
+  }
+
+  .col[open] summary svg {
+    transform: rotate(180deg);
+  }
+
+  .col ul {
+    padding-bottom: var(--space-5);
+  }
+
+  .brandRow {
+    flex-direction: column;
+    align-items: flex-start;
+    border-top: 0;
+    padding-block: var(--space-6);
+  }
+
+  .bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
