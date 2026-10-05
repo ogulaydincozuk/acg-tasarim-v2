@@ -212,7 +212,7 @@
 /* Tablet & mobil: önce metin (ilk karşılaşılan şey başlık ve butonlar), sonra görsel, en altta ayrı "Yılbaşı Özel" bölümü */
 @media (max-width: 1023px) {
   .grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: var(--space-10);
   }
 
@@ -221,7 +221,7 @@
     grid-column: auto;
     grid-row: auto;
     max-width: none;
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     padding-bottom: 1rem;
   }
 

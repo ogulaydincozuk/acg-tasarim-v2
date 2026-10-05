@@ -364,7 +364,7 @@
 @media (max-width: 1023px) {
   .idle,
   .results {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: var(--space-8);
   }
 }
@@ -396,6 +396,6 @@
   }
 
   .products {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }

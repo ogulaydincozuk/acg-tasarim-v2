@@ -190,6 +190,9 @@
 
 .buy > :global(.btn) {
   flex: 1;
+  /* dar ekranda içerik minimum genişliği kolonu şişirmesin */
+  min-width: 0;
+  padding-inline: var(--space-4);
 }
 
 .fav {
@@ -300,7 +303,7 @@
 
 @media (max-width: 1023px) {
   .top {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
     gap: var(--space-8);
   }
 
@@ -319,6 +322,6 @@
   }
 
   .contents {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
   }
 }

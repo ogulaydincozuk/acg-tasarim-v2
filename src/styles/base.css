@@ -34,6 +34,13 @@ main {
   overflow-x: clip;
 }
 
+/* `overflow: clip` desteklemeyen eski tarayıcılarda (iOS Safari < 16) sayfa sağa sola kaymasın */
+@supports not (overflow: clip) {
+  body {
+    overflow-x: hidden;
+  }
+}
+
 html.is-locked,
 body.is-locked {
   overflow: hidden;
