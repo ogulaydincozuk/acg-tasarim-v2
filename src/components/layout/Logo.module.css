@@ -1,25 +1,30 @@
+/*
+ * Logo yüksekliği sabit bir değişkenle verilir; görsel yüzde yükseklik (height: 100%) kullanmaz.
+ * iOS/WebKit'te yüzde yükseklik çözülemediğinde bağlantı kutusu görselin HTML'deki doğal
+ * genişliğini (223 px) alıp header'ı taşırıyordu.
+ */
 .logo {
+  --logo-h: 58px;
   display: inline-flex;
   flex: none;
   justify-self: start;
+  height: var(--logo-h);
 }
 
 .logo img {
+  display: block;
   width: auto;
-  height: 100%;
+  max-width: none;
+  height: var(--logo-h);
 }
 
 /* Logo orijinal oranıyla; çevresinde bol boşluk */
-.lockup {
-  height: 58px;
-}
-
 .badge {
-  height: 84px;
+  --logo-h: 84px;
 }
 
 @media (max-width: 1023px) {
   .lockup {
-    height: 44px;
+    --logo-h: 44px;
   }
 }

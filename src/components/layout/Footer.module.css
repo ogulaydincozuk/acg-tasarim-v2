@@ -73,7 +73,7 @@
 }
 
 .brandRow .logo {
-  height: 52px;
+  --logo-h: 52px;
 }
 
 .social {
